@@ -84,7 +84,7 @@ function initialize(x,y) {
 	updateHajiraiPoint();
     });
 
-    function checkHajiraiPoint(lat, lng) {
+    function checkTakumiPoint(lat, lng) {
 	var min = Number.MAX_VALUE;
 	var min_i = 0;
 
@@ -103,11 +103,11 @@ function initialize(x,y) {
 	return point;
     }
 
-    function updateHajiraiPoint() {
+    function updateTakumiPoint() {
 	var pos = marker.getPosition();
 	var lat = pos.lat();
 	var lng = pos.lng();
-	var point = checkHajiraiPoint(lat, lng);
+	var point = checkTakumiPoint(lat, lng);
 	localStorage.setItem("lat",lat);
 	localStorage.setItem("lng",lng);
 	localStorage.setItem("point",point);

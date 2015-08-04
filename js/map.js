@@ -41,7 +41,7 @@ function initialize(x,y) {
     	zoom: 14,
     	center: myLatlng,
     	mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+    };
     // MapTypeId に、地図タイプを指定
     // HYBRID 衛星画像と主要な通りが表示されます
     // ROADMAP 通常の地図画像が表示されます
@@ -53,10 +53,10 @@ function initialize(x,y) {
 
 
         var populationOptions = {
-            strokeColor: red,
+            //strokeColor: red,
             strokeOpacity: 0.8, //透明度
             strokeWeight: 2,
-            fillColor: red,
+            //fillColor: red,
             fillOpacity: 0.35,
             map: map,
             center: new google.maps.LatLng(34.664722, 135.433056),
@@ -67,7 +67,7 @@ function initialize(x,y) {
     }
 
     //現在地にマーカーを置く
-    var marker = new google.maps.Marker({
+var marker = new google.maps.Marker({
     	position: myLatlng,
     	map: map,
     	title:"Your position",

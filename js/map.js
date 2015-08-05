@@ -81,7 +81,7 @@ function initialize(x,y) {
     
 }
    google.maps.event.addListener(marker, 'dragend', function(ev){
-	updateHajiraiPoint();
+	updateTakumiPoint();
     });
 
     function checkTakumiPoint(lat, lng) {

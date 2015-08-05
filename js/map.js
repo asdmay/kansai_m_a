@@ -78,43 +78,41 @@ function initialize(x,y) {
     	title:"Your position",
 	draggable: true//マーカーを動かせるようにする
     });
-    
-}
-   google.maps.event.addListener(marker, 'dragend', function(ev){
+    google.maps.event.addListener(marker, 'dragend', function(ev){
 	updateTakumiPoint();
     });
+}
 
-    function checkTakumiPoint(lat, lng) {
-	var min = Number.MAX_VALUE;
-	var min_i = 0;
+function checkTakumiPoint(lat, lng) {
+    var min = Number.MAX_VALUE;
+    var min_i = 0;
 
-	for( var i = 0; i < citymap.length; i++){
-	    var distance = google.maps.geometry.spherical.computeDistanceBetween(citymap[i].center, new google.maps.LatLng(lat, lng));
-  	    if( min > distance ){
- 		min = distance;
-   		min_i = i;
-   	    }
-	}//一番近い大阪の集客数の多いところを表示させる
-	var radius = Math.sqrt(citymap[min_i].area/Math.PI);
-	var point = 0;
-	if(min<radius){
-	    point = citymap[min_i].point;
-	}
-	return point;
+    for( var i = 0; i < citymap.length; i++){
+	var distance = google.maps.geometry.spherical.computeDistanceBetween(citymap[i].center, new google.maps.LatLng(lat, lng));
+  	if( min > distance ){
+ 	    min = distance;
+   	    min_i = i;
+   	}
+    }//一番近い大阪の集客数の多いところを表示させる
+    var radius = 50;
+    var point = 0;
+    if(min<radius){
+	point = citymap[min_i].point;
     }
+    return point;
+}
 
-    function updateTakumiPoint() {
-	var pos = marker.getPosition();
-	var lat = pos.lat();
-	var lng = pos.lng();
-	var point = checkTakumiPoint(lat, lng);
-	localStorage.setItem("lat",lat);
-	localStorage.setItem("lng",lng);
-	localStorage.setItem("point",point);
-	document.getElementById("show_point").innerHTML = point;
-    }
+function updateTakumiPoint() {
+    var pos = marker.getPosition();
+    var lat = pos.lat();
+    var lng = pos.lng();
+    var point = checkTakumiPoint(lat, lng);
+    localStorage.setItem("lat",lat);
+    localStorage.setItem("lng",lng);
+    localStorage.setItem("point",point);
+    document.getElementById("show_point").innerHTML = point;
+}
 
-updateHajiraiPoint();
-
+updateTakumiPoint();
 
 google.maps.event.addDomListener(window, 'load', initialize);

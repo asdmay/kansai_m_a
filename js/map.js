@@ -1,24 +1,31 @@
 var message;
 var cityCircle;
 
-var citymap = {};
-citymap['USJ'] = {
-    center: new google.maps.LatLng(34.664722, 135.433056),//緯度,経度
-    takumi_p: 10
-};
-citymap['海遊館'] = {
-    center: new google.maps.LatLng(34.654472, 135.428889),
-    takumi_p: 20
-};
-citymap['大阪市立科学館'] = {
-    center: new google.maps.LatLng(34.691306, 135.491583),
-    takumi_p: 30
-};
-citymap['交通科学博物館'] = {
-    center: new google.maps.LatLng(34.670715, 135.461895),
-    takumi_p: 40
-};
-
+var citymap = [
+    {
+	name: 'USJ',
+	center: new google.maps.LatLng(34.664722, 135.433056),//緯度,経度
+	point: 10
+    }
+    ,
+    {
+	name: '海遊館',
+	center: new google.maps.LatLng(34.654472, 135.428889),
+	point: 20
+    }
+    ,
+    {
+	name: '大阪市立科学館',
+	center: new google.maps.LatLng(34.691306, 135.491583),
+	point: 30
+    }
+    ,
+    {
+	name: '交通科学博物館',
+	center: new google.maps.LatLng(34.670715, 135.461895),
+	point: 40
+    }
+];
 
 function start_func(){
     get_location();
@@ -44,7 +51,6 @@ function errorCallback(error) {
 }
 
 function initialize(x,y) {
-    
     var myLatlng = new google.maps.LatLng(34.664722, 135.433056);//USJ
     //var myLatlng = new google.maps.LatLng(x,y); 
     
@@ -71,6 +77,7 @@ function initialize(x,y) {
         // マップへcityのための円を加える
         cityCircle = new google.maps.Circle(populationOptions);
     }
+
     //現在地にマーカーを置く
     var marker = new google.maps.Marker({
     	position: myLatlng,
@@ -81,38 +88,44 @@ function initialize(x,y) {
     google.maps.event.addListener(marker, 'dragend', function(ev){
 	updateTakumiPoint();
     });
-}
 
-function checkTakumiPoint(lat, lng) {
-    var min = Number.MAX_VALUE;
-    var min_i = 0;
 
-    for( var i = 0; i < citymap.length; i++){
-	var distance = google.maps.geometry.spherical.computeDistanceBetween(citymap[i].center, new google.maps.LatLng(lat, lng));
-  	if( min > distance ){
- 	    min = distance;
-   	    min_i = i;
-   	}
-    }//一番近い大阪の集客数の多いところを表示させる
-    var radius = 50;
-    var point = 0;
-    if(min<radius){
-	point = citymap[min_i].point;
+    function checkTakumiPoint(lat, lng) {
+	var min = Number.MAX_VALUE;
+	var min_i = 0;
+
+	for( var i = 0; i < citymap.length; i++){
+	    var distance = google.maps.geometry.spherical.computeDistanceBetween(citymap[i].center, new google.maps.LatLng(lat, lng));
+
+  	    if( min > distance ){
+ 		min = distance;
+   		min_i = i;
+   	    }
+	}//一番近い大阪の集客数の多いところを表示させる
+
+	console.log(citymap[min_i]);
+
+
+	var radius = 50;
+	var point = 0;
+	if(min<radius){
+	    point = citymap[min_i].point;
+	}
+	return point;
     }
-    return point;
-}
 
-function updateTakumiPoint() {
-    var pos = marker.getPosition();
-    var lat = pos.lat();
-    var lng = pos.lng();
-    var point = checkTakumiPoint(lat, lng);
-    localStorage.setItem("lat",lat);
-    localStorage.setItem("lng",lng);
-    localStorage.setItem("point",point);
-    document.getElementById("show_point").innerHTML = point;
-}
+    function updateTakumiPoint() {
+	var pos = marker.getPosition();
+	var lat = pos.lat();
+	var lng = pos.lng();
+	var point = checkTakumiPoint(lat, lng);
+	localStorage.setItem("lat",lat);
+	localStorage.setItem("lng",lng);
+	localStorage.setItem("point",point);
+	document.getElementById("show_point").innerHTML = point;
+    }
 
-updateTakumiPoint();
+    updateTakumiPoint();
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);

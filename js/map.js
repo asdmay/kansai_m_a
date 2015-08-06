@@ -4,7 +4,7 @@ var cityCircle;
 var citymap = [
     {
 	name: 'USJ',
-	center: new google.maps.LatLng(34.664722, 135.433056),//緯度,経度
+	center: new google.maps.LatLng(34.664722, 135.433056),//latitude,longitude
 	point: 10
     }
     ,
@@ -41,8 +41,8 @@ function get_location(){
 }
 
 function successCallback(pos) {
-    var Potition_latitude = pos.coords.latitude; //緯度
-    var Potition_longitude = pos.coords.longitude;//軽度
+    var Potition_latitude = pos.coords.latitude; //latitude
+    var Potition_longitude = pos.coords.longitude;//longitude
     initialize(Potition_latitude,Potition_longitude);
 }
 
@@ -66,7 +66,7 @@ function initialize(x,y) {
     for (var city in citymap) {
         var populationOptions = {
             strokeColor: '#FF0000',
-            strokeOpacity: 0.8, //透明度
+            strokeOpacity: 0.8, 
             strokeWeight: 2,
             fillColor: '#FF0000',
             fillOpacity: 0.35,
@@ -74,16 +74,16 @@ function initialize(x,y) {
             center: citymap[city].center,
             radius: 50
         };
-        // マップへcityのための円を加える
+        // View circle on the map
         cityCircle = new google.maps.Circle(populationOptions);
     }
 
-    //現在地にマーカーを置く
+    //put a marker at the current location
     var marker = new google.maps.Marker({
     	position: myLatlng,
     	map: map,
     	title:"Your position",
-	draggable: true//マーカーを動かせるようにする
+	draggable: true
     });
     google.maps.event.addListener(marker, 'dragend', function(ev){
 	updateTakumiPoint();
@@ -101,7 +101,7 @@ function initialize(x,y) {
  		min = distance;
    		min_i = i;
    	    }
-	}//一番近い大阪の集客数の多いところを表示させる
+	}//displays the closest takumi point spot from the current location
 
 	console.log(citymap[min_i]);
 

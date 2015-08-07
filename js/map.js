@@ -111,10 +111,10 @@ function initialize(x,y) {
 	var radius = 50;
 	var point = 0;
 	if(min<radius){
+	    name = citymap[min_i].name;
 	    point = citymap[min_i].point;
-	}
-	return point;
-    }
+	return  point;
+	}}    
 
     function updateTakumiPoint() {
 	var pos = marker.getPosition();
@@ -124,10 +124,24 @@ function initialize(x,y) {
 	localStorage.setItem("lat",lat);
 	localStorage.setItem("lng",lng);
 	localStorage.setItem("point",point);
+	localStorage.setItem("name",name);
+	if(point == null){
+	    point = 0 ;
+	    name = ""; 
+	}
 	document.getElementById("show_point").innerHTML = point;
+	document.getElementById("show_mission").innerHTML = name;
+	//var temp = "";
+	//for(i=0;i<citymap.length;i++){
+	 //   temp += citymap[i].name + " "; 
+//	}
+//	  document.getElementById("show_mission").innerHTML = temp + "<br/>";
+//	console.log(temp)
     }
 
     updateTakumiPoint();
 }
-
+//console.log(citymap[1].name);
+//document.getElementById("test").innerHTML ="TEST"; //citymap[1].name;
+   
 google.maps.event.addDomListener(window, 'load', initialize);

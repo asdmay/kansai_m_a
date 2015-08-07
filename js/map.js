@@ -5,24 +5,28 @@ var citymap = [
     {
 	name: 'USJ',
 	center: new google.maps.LatLng(34.664722, 135.433056),//latitude,longitude
+	mission: 'Eat lunch.',
 	point: 10
     }
     ,
     {
 	name: '海遊館',
 	center: new google.maps.LatLng(34.654472, 135.428889),
-	point: 20
+	mission: 'Eat lunch.',
+	point: 2
     }
     ,
     {
 	name: '大阪市立科学館',
 	center: new google.maps.LatLng(34.691306, 135.491583),
+	mission: 'Eat lunch.',
 	point: 30
     }
     ,
     {
 	name: '交通科学博物館',
 	center: new google.maps.LatLng(34.670715, 135.461895),
+	mission: 'Eat lunch.',
 	point: 40
     }
 ];
@@ -104,8 +108,6 @@ function initialize(x,y) {
 	}//displays the closest takumi point spot from the current location
 
 	console.log(citymap[min_i]);
-
-
 	var radius = 50;
 	var point = 0;
 	if(min<radius){

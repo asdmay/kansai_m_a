@@ -1,40 +1,19 @@
 {
-  "name": "JQ",
-  "description": "",
-  "activities": {
-    "view": {
-      "filters": {
-        "type": "url",
-        "url": {
-          "required": true,
-          "regexp":"/^https?:/"
-        }
-      }
-    }
-  },
-
-  "launch_path":"/start.html",
-  "developer":{
-    "name":"takumi_team",
-    "url":""
-  },
-
-  "locales":{
-    "en-US":{
-      "name":"JQ",
-      "description": ""
-    }
-  },
-
-	"default_locale":"en-US",
-	"icons":{
-    "128":"/style/icons/icon.png"
+	"name": "JQ",
+	"description": "game for sightseeing",
+	"developer":{
+	"name": "takumi_team"
 	},
-	"permissions": {
-      "geolocation": {
-         "description": "Required to schedule notifications"
-      }
-  },
-  "csp":
-    "default-src *; script-src 'self', 'facebook.com'; object-src 'none'; style-src 'self'"
+	"launch_path": "/map.html",
+	"icons":{
+	"128": "/image/app_icon.png"
+	},
+	"defalt_local": "ja",
+	"fullscreen": "true",
+	 "permissions": {
+	"geolocation": {
+    	    "description": "Get current geolocation"
+	}
+    }	
+
 }

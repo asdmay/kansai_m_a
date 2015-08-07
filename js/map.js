@@ -13,7 +13,7 @@ var citymap = [
 	name: '海遊館',
 	center: new google.maps.LatLng(34.654472, 135.428889),
 	mission: 'Eat lunch.',
-	point: 2
+	point: 20
     }
     ,
     {

@@ -1,0 +1,19 @@
+{
+	"name": "JQ",
+	"description": "game for sightseeing",
+	"developer":{
+	"name": "takumi_team"
+	},
+	"launch_path": "/map.html",
+	"icons":{
+	"128": "/image/app_icon.png"
+	},
+	"defalt_local": "ja",
+	"fullscreen": "true",
+	 "permissions": {
+	"geolocation": {
+    	    "description": "Get current geolocation"
+	}
+    }	
+
+}

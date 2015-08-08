@@ -14,7 +14,7 @@ function imagePicked() {
     photo.onload = function() {
         var canvas = document.getElementById('canvassample');
         var context = canvas.getContext('2d');
-        context.drawImage(photo, 0, 0, 480, 800);
+        context.drawImage(photo, 0, 0, canvas.width, canvas.height);
     };
 
     var lat = localStorage.getItem("lat");

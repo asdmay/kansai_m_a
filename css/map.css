@@ -40,7 +40,7 @@ body{
     width: 50%;
     height: 70%;
     background-color: #dc143c;
-    background-image: url(../img/point.png), url(../img/takumi2.png);
+    background-image: url(../img/point.png), url(../img/takumi.png);
     background-repeat:  no-repeat, no-repeat;
     background-position:right center, left center;
     
@@ -79,18 +79,31 @@ body{
     clear: both;
 }
 
-.areaBox {
+.takumiBox {
     float: left;
-    width: 70%;
+    width: 30%;
     height: 100%;
-    background: red;
+    background-color: #dc143c;
+    background-image: url(../img/point2.png), url(../img/takumi2.png);
+    background-repeat:  no-repeat, no-repeat;
+    background-position:right bottom, left top;
+}
+.result_missionBox {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: #800000;
 }
 
 .backButton {
     float: left;
-    width: 30%;
+    width: 20%;
     height: 100%;
-    background: blue;
+    background: white;
+    background-image: url(../img/back.png), url(../img/kasanebako.gif);
+    background-repeat:  no-repeat, repeat;
+    background-position: center center,center center;
+    
 }
 
 p {
@@ -107,5 +120,15 @@ p {
     font-size:smaller;
     font-style: bold;
     color:  #800000;
+    text-align: center;
+}
+
+.takumiBox p {
+    font-size: x-large;
+    color: white;
+    text-align: center;
+}
+.result_missionBox p {
+    color: white;
     text-align: center;
 }

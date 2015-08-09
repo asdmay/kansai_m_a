@@ -24,7 +24,8 @@ function imagePicked() {
 
 // google Map API を使い、地図を読み込み
 function initialize(x,y) {
-    document.getElementById("area_name").innerHTML = localStorage.getItem("point");
+    document.getElementById("takumi_point").innerHTML = localStorage.getItem("point");
+    document.getElementById("mission_name").innerHTML = localStorage.getItem("name");
 }
 
 

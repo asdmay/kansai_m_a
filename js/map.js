@@ -113,7 +113,7 @@ function initialize(x,y) {
 	if(min<radius){
 	    name = citymap[min_i].name;
 	    point = citymap[min_i].point;
-	return  point;
+	    return  point;
 	}}    
 
     function updateTakumiPoint() {

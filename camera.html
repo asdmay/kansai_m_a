@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <title>現在地の表示</title>
     <link rel="stylesheet" type="text/css" href="css/map.css"  />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry"></script>
     <!-- <script type="text/javascript" src="./js/getcsv.js"></script> -->
     <script type="text/javascript" src="./js/camera.js"></script>
   </head>
   <body onload="start_func()">
-    <div class="camera_back">
-      <canvas id="canvassample" width="320" height="400"></canvas>
-    </div>
+    <!-- <div class="camera_back"> -->
+      <canvas id="canvassample" width="900" height="1200"></canvas>
+      <!-- </div> -->
     <div class="result">
       <a href="map.html"><div class="backButton"><p>back</p></div></a>
       <div class="areaBox"><p id="area_name"></p></div>

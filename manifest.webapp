@@ -1,12 +1,12 @@
 {
-	"name": "JQ",
+	"name": "JapanQuest",
 	"description": "game for sightseeing",
 	"developer":{
 	"name": "takumi_team"
 	},
 	"launch_path": "/start.html",
 	"icons":{
-	"128": "/image/app_icon.png"
+	"128": "/img/icon.png"
 	},
 	"defalt_local": "ja",
 	"fullscreen": "true",

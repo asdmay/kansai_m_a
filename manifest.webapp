@@ -4,7 +4,7 @@
 	"developer":{
 	"name": "takumi_team"
 	},
-	"launch_path": "/map.html",
+	"launch_path": "/start.html",
 	"icons":{
 	"128": "/image/app_icon.png"
 	},

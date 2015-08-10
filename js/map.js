@@ -3,31 +3,31 @@ var cityCircle;
 
 var citymap = [
     {
-	name: 'USJ',
-	center: new google.maps.LatLng(34.664722, 135.433056),//latitude,longitude
+	name: 'Eating fish alive',
+	center: new google.maps.LatLng(35.644291, 134.902585),//latitude,longitude
 	mission: 'Eat lunch.',
-	point: 10
+	point: 600
     }
     ,
     {
-	name: '海遊館',
-	center: new google.maps.LatLng(34.654472, 135.428889),
+	name: 'Sky diving',
+	center: new google.maps.LatLng(35.516289, 134.789334),
 	mission: 'Eat lunch.',
-	point: 20
+	point: 500
     }
     ,
     {
-	name: '大阪市立科学館',
-	center: new google.maps.LatLng(34.691306, 135.491583),
+	name: 'Eat Ramen at deep in mountain',
+	center: new google.maps.LatLng(34.381647, 135.901582),
 	mission: 'Eat lunch.',
-	point: 30
+	point: 50
     }
     ,
     {
-	name: '交通科学博物館',
-	center: new google.maps.LatLng(34.670715, 135.461895),
+	name: 'Try Syakyo at temple',
+	center: new google.maps.LatLng(34.891136, 134.658155),
 	mission: 'Eat lunch.',
-	point: 40
+	point: 300
     }
 ];
 
@@ -55,7 +55,7 @@ function errorCallback(error) {
 }
 
 function initialize(x,y) {
-    var myLatlng = new google.maps.LatLng(34.664722, 135.433056);//USJ
+    var myLatlng = new google.maps.LatLng(35.644291, 134.902585);//USJ
     //var myLatlng = new google.maps.LatLng(x,y); 
     
     var mapOptions = {
